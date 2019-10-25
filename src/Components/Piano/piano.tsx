@@ -21,12 +21,12 @@ const Piano = ({ keys }: propTypes) => {
   if (!keys) keys = 25; // Default number of keys
   const bKeyPat = [1, 1, 0, 1, 1, 1, 0]; // Black key pattern
 
-  const renderedKeys = () => whiteKeys.length + blackKeys.length; // Get number of currently rendered keys
+  const allKeysRendered = () => whiteKeys.length + blackKeys.length >= keys; // Check if we have rendered all the keys asked for
 
   let whiteKeys = []; // To be populated with WhiteKey components
   let blackKeys = []; // To be populated with BlackKey components
-  let i = 0; // Loop index
-  while (renderedKeys() < keys) {
+  let i = 0;
+  while (!allKeysRendered()) {
     // Add white key
     whiteKeys.push(
       <WhiteKey
@@ -40,8 +40,8 @@ const Piano = ({ keys }: propTypes) => {
       />
     );
 
-    // Check if we still need more keys
-    if (renderedKeys() < keys) {
+    // Check if we need another key still
+    if (!allKeysRendered()) {
       // Check if the current note has a black key next to it
       if (bKeyPat[i % 7] === 1) {
         // Add black key
@@ -52,7 +52,7 @@ const Piano = ({ keys }: propTypes) => {
             key={i + 0.5}
             width={BLACK_KEY_WIDTH}
             height={BLACK_KEY_HEIGHT}
-            wWidth={WHITE_KEY_WIDTH}
+            gridWidth={WHITE_KEY_WIDTH}
             radius={KEY_RADIUS}
           />
         );

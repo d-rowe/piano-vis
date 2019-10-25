@@ -5,7 +5,7 @@ type propTypes = {
   y: number;
   width: number;
   height: number;
-  wWidth: number;
+  gridWidth: number;
   radius: number;
 };
 
@@ -14,10 +14,10 @@ const BlackKey = ({
   y,
   width,
   height,
-  wWidth,
+  gridWidth,
   radius,
 }: propTypes) => {
-  x = (x + 1) * wWidth - width / 2; // Set so that key is in the middle of two white keys
+  x = (x + 1) * gridWidth - width / 2; // Set so that key is in the middle of two white keys
   return (
     <rect
       x={x}
