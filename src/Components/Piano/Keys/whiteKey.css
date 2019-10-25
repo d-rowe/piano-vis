@@ -1,0 +1,7 @@
+.white-key {
+  transition: fill 50ms;
+}
+
+.white-key:hover {
+  fill: #851de0;
+}

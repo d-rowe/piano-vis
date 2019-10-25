@@ -1,0 +1,7 @@
+.black-key {
+  transition: fill 50ms;
+}
+
+.black-key:hover {
+  fill: #851de0;
+}
