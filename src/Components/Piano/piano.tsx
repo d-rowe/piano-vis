@@ -11,13 +11,6 @@ const PANEL_HEIGHT = 50;
 const PANEL_SHADOW_HEIGHT = 10;
 const KEY_RADIUS = 10;
 
-// TODO move to css
-const COLORS = {
-  BLACK: 'black',
-  WHITE: 'white',
-  PANEL: '#851de0'
-};
-
 type propTypes = {
   keys: number;
 };
@@ -77,12 +70,7 @@ const Piano = ({ keys }: propTypes) => {
         {blackKeys}
       </g>
       <g className='panel'>
-        <rect
-          width={totalWidth}
-          height={PANEL_HEIGHT}
-          y={yMin}
-          fill={COLORS.PANEL}
-        />
+        <rect width={totalWidth} height={PANEL_HEIGHT} y={yMin} />
         <rect
           className='panel-shadow'
           width={totalWidth}
