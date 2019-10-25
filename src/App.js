@@ -6,7 +6,7 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header container'>
-          <Piano keys={37} />
+          <Piano />
       </header>
     </div>
   );

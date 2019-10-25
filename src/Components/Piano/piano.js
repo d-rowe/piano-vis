@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import WhiteKey from './Keys/whiteKey';
 import BlackKey from './Keys/blackKey';
 import Panel from './Panel/panel';
@@ -13,12 +14,7 @@ const PANEL_HEIGHT = 50;
 const PANEL_SHADOW_HEIGHT = 10;
 const KEY_RADIUS = 10;
 
-type propTypes = {
-  keys: number;
-};
-
-const Piano = ({ keys }: propTypes) => {
-  if (!keys) keys = 25; // Default number of keys
+const Piano = ({ keys }) => {
   const bKeyPat = [1, 1, 0, 1, 1, 1, 0]; // Black key pattern
 
   const allKeysRendered = () => whiteKeys.length + blackKeys.length >= keys; // Check if we have rendered all the keys asked for
@@ -80,6 +76,14 @@ const Piano = ({ keys }: propTypes) => {
       />
     </svg>
   );
+};
+
+Piano.propTypes = {
+  keys: PropTypes.number
+};
+
+Piano.defaultProps = {
+  keys: 25
 };
 
 export default Piano;
