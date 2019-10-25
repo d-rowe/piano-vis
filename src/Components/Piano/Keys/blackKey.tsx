@@ -1,5 +1,4 @@
 import React from 'react';
-import './blackKey.css';
 
 type propTypes = {
   x: number;

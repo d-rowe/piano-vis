@@ -1,0 +1,31 @@
+$panel-fill: #e84545
+$whitekey-fill: white
+$blackkey-fill: black
+$pressed-fill: #4f81c7
+
+.panel
+  fill: $panel-fill
+
+.panel-shadow
+  fill: black
+  opacity: 0.3
+
+.white-key
+  transform-origin: top center
+  transform-box: fill-box
+  transition: all 150ms
+  fill: $whitekey-fill
+
+.white-key:hover
+  fill: #3c70a4
+  transform: scale(0.98)
+
+.black-key
+  transform-origin: top center
+  transform-box: fill-box
+  transition: all 100ms
+  fill: $blackkey-fill
+
+.black-key:hover
+  fill: #2b5075
+  transform: scale(0.97)

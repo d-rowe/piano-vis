@@ -1,5 +1,4 @@
 import React from 'react';
-import './whiteKey.css';
 
 type propTypes = {
   x: number;
