@@ -8,10 +8,9 @@ type propTypes = {
   height: number;
   padding: number;
   radius: number;
-  color: string;
 };
 
-const WhiteKey = ({ x, y, width, height, padding, radius, color }: propTypes) => {
+const WhiteKey = ({ x, y, width, height, padding, radius }: propTypes) => {
   return (
     <rect
       x={x * width + padding / 2}
@@ -19,7 +18,6 @@ const WhiteKey = ({ x, y, width, height, padding, radius, color }: propTypes) =>
       width={width - padding}
       height={height}
       className='white-key'
-      fill={color}
       rx={radius}
     />
   );

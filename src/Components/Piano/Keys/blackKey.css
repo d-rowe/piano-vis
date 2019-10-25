@@ -1,7 +1,11 @@
 .black-key {
-  transition: fill 50ms;
+  transform-origin: top center;
+  transform-box: fill-box;
+  transition: all 200ms;
+  fill: black;
 }
 
 .black-key:hover {
-  fill: #851de0;
+  fill: #2873ff;
+  transform: scale(0.97);
 }

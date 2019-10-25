@@ -1,7 +1,11 @@
 .white-key {
-  transition: fill 50ms;
+  transform-origin: top center;
+  transform-box: fill-box;
+  transition: all 200ms;
+  fill: white
 }
 
 .white-key:hover {
-  fill: #851de0;
+  fill: #4989ff;
+  transform: scale(0.98);
 }

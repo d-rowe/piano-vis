@@ -8,7 +8,6 @@ type propTypes = {
   height: number;
   wWidth: number;
   radius: number;
-  color: string;
 };
 
 const BlackKey = ({
@@ -18,7 +17,6 @@ const BlackKey = ({
   height,
   wWidth,
   radius,
-  color
 }: propTypes) => {
   x = (x + 1) * wWidth - width / 2; // Set so that key is in the middle of two white keys
   return (
@@ -28,7 +26,6 @@ const BlackKey = ({
       width={width}
       height={height}
       className='black-key'
-      fill={color}
       rx={radius}
     />
   );

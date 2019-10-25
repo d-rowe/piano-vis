@@ -1,15 +1,22 @@
 import React from 'react';
 import WhiteKey from './Keys/whiteKey';
 import BlackKey from './Keys/blackKey';
+import './piano.css';
 
-const WHITE_WIDTH = 100; // White key width
+const WHITE_KEY_WIDTH = 100; // White key width
 const HEIGHT = 400; // White key height
-const BLACK_WIDTH = WHITE_WIDTH * 0.7; // Black key width
-const BLACK_HEIGHT = HEIGHT * 0.65; // Black key height
-const RADIUS = 10;
-const PANEL_HEIGHT = 30;
-const BLACK = 'black';
-const WHITE = 'white';
+const BLACK_KEY_WIDTH = WHITE_KEY_WIDTH * 0.7; // Black key width
+const BLACK_KEY_HEIGHT = HEIGHT * 0.65; // Black key height
+const PANEL_HEIGHT = 50;
+const PANEL_SHADOW_HEIGHT = 10;
+const KEY_RADIUS = 10;
+
+// TODO move to css
+const COLORS = {
+  BLACK: 'black',
+  WHITE: 'white',
+  PANEL: '#851de0'
+};
 
 type propTypes = {
   keys: number;
@@ -30,12 +37,11 @@ const Piano = ({ keys }: propTypes) => {
       <WhiteKey
         x={i}
         y={0}
-        width={WHITE_WIDTH}
+        width={WHITE_KEY_WIDTH}
         height={HEIGHT}
         key={i}
         padding={10}
-        radius={RADIUS}
-        color={WHITE}
+        radius={KEY_RADIUS}
       />
     );
 
@@ -49,40 +55,39 @@ const Piano = ({ keys }: propTypes) => {
             x={i}
             y={0}
             key={i + 0.5}
-            width={BLACK_WIDTH}
-            height={BLACK_HEIGHT}
-            wWidth={WHITE_WIDTH}
-            radius={RADIUS}
-            color={BLACK}
+            width={BLACK_KEY_WIDTH}
+            height={BLACK_KEY_HEIGHT}
+            wWidth={WHITE_KEY_WIDTH}
+            radius={KEY_RADIUS}
           />
         );
       }
     }
     i += 1;
   }
-  const totalWidth = whiteKeys.length * WHITE_WIDTH;
-  const yMin = PANEL_HEIGHT * -1 + RADIUS;
+  const totalWidth = whiteKeys.length * WHITE_KEY_WIDTH;
+  const yMin = PANEL_HEIGHT * -1 + KEY_RADIUS;
   return (
     <svg
       className='piano'
       viewBox={`0 ${yMin} ${totalWidth} ${HEIGHT + PANEL_HEIGHT}`}
     >
-      {whiteKeys}
-      {blackKeys}
-      <g>
+      <g className='keys'>
+        {whiteKeys}
+        {blackKeys}
+      </g>
+      <g className='panel'>
         <rect
           width={totalWidth}
           height={PANEL_HEIGHT}
           y={yMin}
-          fill='#851de0'
-          rx={RADIUS / 2}
+          fill={COLORS.PANEL}
         />
         <rect
+          className='panel-shadow'
           width={totalWidth}
-          height={15}
-          y={RADIUS}
-          fill='black'
-          opacity={0.2}
+          height={PANEL_SHADOW_HEIGHT}
+          y={KEY_RADIUS}
         />
       </g>
     </svg>
