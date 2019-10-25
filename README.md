@@ -1,6 +1,6 @@
 # Piano Vis
 
-Responsive SVG piano made with React & TypeScript
+Responsive SVG piano made with React
 
 ![](https://i.imgur.com/Behol0m.png)
 
